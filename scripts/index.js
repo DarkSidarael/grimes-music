@@ -6,6 +6,7 @@ let music = 0
 let musics = []
 let isPlaying = false
 let timeEvent = null
+let musica = document.querySelector('audio');
 
 function changeMusic(direction) {
   music = music + direction
@@ -47,15 +48,17 @@ function handleToggle() {
   navigation.classList.toggle('active')
 }
 
-function changeIconButtonPlay() {
+function changeIconButtonPlay() { 
   const buttonPlay = document.getElementById('button__play')
 
   if(isPlaying) {
     buttonPlay.classList.remove('play')
     buttonPlay.classList.add('pause')
+    musica.play();
   } else {
     buttonPlay.classList.remove('pause')
     buttonPlay.classList.add('play')
+    musica.pause();
   }
 }
 

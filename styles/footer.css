@@ -2,6 +2,7 @@ footer {
   display: flex;
 
   position: relative;
+  
 }
 
 #timeline {
@@ -28,6 +29,8 @@ footer {
   transform: translateY(-6px);
   filter: blur(0.2px);
 }
+
+
 
 .footer__content {
   width: 100%;

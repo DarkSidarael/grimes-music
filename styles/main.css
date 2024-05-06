@@ -12,7 +12,8 @@ main {
   width: 100%;
   max-width: 1440px;
   margin: auto auto 0;
-  padding: 24px 24px 228px;
+  padding: 24px 24px 228px ;
+
 
   display: flex;
   flex-direction: column;
@@ -76,15 +77,21 @@ main {
   visibility: hidden;
 }
 
+.tempo{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
 @media(max-width: 1080px) {
   .main__content {
-    padding: 24px 24px 150px;
+    padding: 24px 24px 400px;
   }
 }
 
 @media(max-width: 768px) {
   .main__content {
-    padding: 100px 24px 72px;
+    padding: 100px 24px 90px;
   }
 
   .main__content .controll {
@@ -128,6 +135,7 @@ main {
 @media(max-width: 650px) {
   .main__content .logo {
     width: 140px;
+    padding: 100px 24px 100px;
    
   }
 

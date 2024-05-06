@@ -6,13 +6,20 @@ let music = 0
 let musics = []
 let isPlaying = false
 let timeEvent = null
-let musica = document.querySelector('audio');
+let musica = document.querySelector('audio')
+
 
 function changeMusic(direction) {
   music = music + direction
 
   time = 0
   const timelime = document.getElementById('timeline')
+  musica.addEventListener('timeupdate', atualizarBarra);
+
+function atualizarBarra(){
+  
+  timelime.style.width = Math.floor((musica.currentTime / musica.duration)* 100)+ '%';
+}
   timelime.style.width = `${time}%`
 
   if(music < 0) {
@@ -77,16 +84,16 @@ function playMusic() {
   if(isPlaying) {
     const timelime = document.getElementById('timeline')
 
-    timeEvent = setInterval(() => {
-      if(time >= MAX_TIME) {
-        resetMusic()
-      }
-      time++
-      timelime.style.width = `${time}%`
-    }, 500)
-  } else {
-    clearInterval(timeEvent)
-  }
+//     timeEvent = setInterval(() => {
+//       if(time >= MAX_TIME) {
+//         resetMusic()
+//       }
+//       time++
+//       timelime.style.width = `${time}%`
+//     }, 100 +'%')
+//   } else {
+//     clearInterval(timeEvent)
+   }
 }
 
 const eventsKeydown = {
@@ -99,4 +106,11 @@ document.addEventListener('keydown', (event) => {
   const { code } = event
   eventsKeydown[code]()
 })
+
+musica.addEventListener('timeupdate', atualizarBarra);
+
+function atualizarBarra(){
+  
+  timelime.style.width = Math.floor((musica.currentTime / musica.duration)* 100)+ '%';
+}
 

@@ -1,7 +1,7 @@
 const MAX_TIME = 100
 let TOTAL_MUSICS = 0
 
-let time = 95
+let time = 100
 let music = 0
 let musics = []
 let isPlaying = false
@@ -12,14 +12,26 @@ let musica = document.querySelector('audio')
 function changeMusic(direction) {
   music = music + direction
 
-  time = 0
+  time = 1
   const timelime = document.getElementById('timeline')
   musica.addEventListener('timeupdate', atualizarBarra);
 
 function atualizarBarra(){
   
   timelime.style.width = Math.floor((musica.currentTime / musica.duration)* 100)+ '%';
+  let tempoDecorrido = document.querySelector('.inicio');
+  tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
 }
+function segundosParaMinutos(segundos){
+  let campoMinutos = Math.floor(segundos / 60);
+  let campoSegundos = segundos % 60;
+  
+  if (campoSegundos < 10){
+    campoSegundos = '0' + campoSegundos;
+  } return campoMinutos + ':' + campoSegundos;
+} 
+
+
   timelime.style.width = `${time}%`
 
   if(music < 0) {
@@ -27,8 +39,9 @@ function atualizarBarra(){
   }
   
   if(music > TOTAL_MUSICS - 1) {
-    music = 0
+    music = 1
   }
+  
 
   document.querySelector('.controll span').innerHTML = (music + 1) + ' / ' + TOTAL_MUSICS 
 
@@ -107,10 +120,5 @@ document.addEventListener('keydown', (event) => {
   eventsKeydown[code]()
 })
 
-musica.addEventListener('timeupdate', atualizarBarra);
 
-function atualizarBarra(){
-  
-  timelime.style.width = Math.floor((musica.currentTime / musica.duration)* 100)+ '%';
-}
 

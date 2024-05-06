@@ -125,6 +125,10 @@ main {
   }
 }
 
+.tmp{
+  color: rgb(87, 85, 85);
+}
+
 @media(max-width: 650px) {
   .main__content .logo {
     width: 140px;

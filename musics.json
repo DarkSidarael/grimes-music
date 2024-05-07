@@ -15,6 +15,7 @@
   {
     "name": "music 4 machine",
     "artist": "grimes",
-    "imagem": "assets/logo3.jpg"
+    "imagem": "assets/logo3.jpg",
+    "audio": "music/Machines.mp3"
   }
 ]

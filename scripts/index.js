@@ -11,7 +11,7 @@ let music = 0
 let musics = []
 let isPlaying = false
 let timeEvent = null
-let indexMusica = 0
+
 let musica = document.querySelector('audio')
 let duracaoMusica = document.querySelector('.fim')
 let imagem = document.querySelector('logo')
@@ -30,6 +30,7 @@ function renderizarMusica(index){
   musica.addEventListener('loadeddata', () => {
     imagem.src = musicas[index].img;
     duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+    fim.textContent = segundosParaMinutos(Math.floor(musica.duration));
   });
 }
 
@@ -39,10 +40,14 @@ function renderizarMusica(index){
 
 function changeMusic(direction) {
   music = music + direction
-
   time = 1
   const timelime = document.getElementById('timeline')
   musica.addEventListener('timeupdate', atualizarBarra);
+
+  const buttonPlay = document.getElementById('button__play')
+  buttonPlay.classList.remove('pause')
+  buttonPlay.classList.add('play')
+  isPlaying = false;
 
 function atualizarBarra(){
   
@@ -67,8 +72,8 @@ duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
     music = TOTAL_MUSICS - 1
   }
   
-  if(music > TOTAL_MUSICS - 1) {
-    music = 1
+  if(music >= TOTAL_MUSICS) {
+    music = 0
   }
   
 
@@ -118,7 +123,11 @@ function changeIconButtonPlay() {
     buttonPlay.classList.add('play')
     musica.pause();
   }
+  
+
 }
+
+
 
 function resetMusic() {
   time = 0

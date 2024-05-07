@@ -26,12 +26,15 @@ document.querySelector('.proxima').addEventListener('click', () => {
 });
 
 function renderizarMusica(index){
+  musica.src = musicas[index].src;
   musica.addEventListener('loadeddata', () => {
-    Imagem.src = musicas[index].img;
+    imagem.src = musicas[index].img;
     duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
   });
-  
 }
+
+  
+
 
 
 function changeMusic(direction) {
@@ -80,8 +83,13 @@ duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
   });
   
   document.querySelectorAll('.logo').forEach((element, index) => {
-    element.src = musics[music].imagem; 
+    element.src = musics[music].imagem;     
 });
+
+document.querySelectorAll('audio').forEach((element, index) => {
+  musica.src = musics[music].audio;     
+});
+
 }
 
 // Script de inicialização

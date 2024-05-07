@@ -2,14 +2,15 @@
 [
   {
     "name": "Welcome to the Opera",
-    "artist": "Grimes feat:anyma",
-    "imagem": "assets/logo1.jpg"
-    
+    "artist": "Grimes feat: anyma",
+    "imagem": "assets/logo1.jpg",
+    "audio": "music/anyma.mp3"
   },
   {
     "name": "Ratata",
     "artist": "Grimes",
-    "imagem": "assets/capa3.webp"
+    "imagem": "assets/capa3.webp",
+    "audio": "music/tatara.mp3"
   },
   {
     "name": "music 4 machine",

@@ -16,20 +16,6 @@ let musica = document.querySelector('audio')
 let duracaoMusica = document.querySelector('.fim')
 let imagem = document.querySelector('logo')
 
-document.querySelector('.anterior').addEventListener('click', () => {
-  renderizarMusica();
-});
-
-document.querySelector('.proxima').addEventListener('click', () => {
-  indexMusica++;
-  renderizarMusica(indexMusica);
-});
-
-
-
-  
-
-
 
 function changeMusic(direction) {
   music = music + direction
@@ -48,6 +34,8 @@ function atualizarBarra(){
   let tempoDecorrido = document.querySelector('.inicio');
   tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
 }
+
+
 function segundosParaMinutos(segundos){
   let campoMinutos = Math.floor(segundos / 60);
   let campoSegundos = segundos % 60;
@@ -56,6 +44,9 @@ function segundosParaMinutos(segundos){
     campoSegundos = '0' + campoSegundos;
   } return campoMinutos + ':' + campoSegundos;
 } 
+
+
+
     duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
 
   timelime.style.width = `${time}%`
@@ -83,8 +74,15 @@ function segundosParaMinutos(segundos){
     element.src = musics[music].imagem;     
 });
 
+
+
 document.querySelectorAll('audio').forEach((element, index) => {
-  musica.src = musics[music].audio;     
+  musica.src = musics[music].audio; 
+  if (!isPlaying) {
+    musica.play(); 
+    buttonPlay.classList.remove('play');
+    buttonPlay.classList.add('pause');
+    isPlaying = true;}
 });
 
 document.querySelectorAll('.fim').forEach(element => {
@@ -92,6 +90,8 @@ document.querySelectorAll('.fim').forEach(element => {
 });
 
 }
+
+
 
 // Script de inicialização
 fetch("../musics.json").then(response => response.json()).then(data => {
@@ -105,22 +105,6 @@ function handleToggle() {
   const navigation = document.getElementById('navigation')
   buttonToggle.classList.toggle('active')
   navigation.classList.toggle('active')
-}
-
-function changeIconButtonPlay() { 
-  const buttonPlay = document.getElementById('button__play')
-
-  if(isPlaying) {
-    buttonPlay.classList.remove('play')
-    buttonPlay.classList.add('pause')
-    musica.play();
-  } else {
-    buttonPlay.classList.remove('pause')
-    buttonPlay.classList.add('play')
-    musica.pause();
-  }
-  
-
 }
 
 
@@ -164,4 +148,18 @@ document.addEventListener('keydown', (event) => {
 })
 
 
+function changeIconButtonPlay() { 
+  const buttonPlay = document.getElementById('button__play')
 
+  if(isPlaying) {
+    buttonPlay.classList.remove('play')
+    buttonPlay.classList.add('pause')
+    musica.play();
+  } else {
+    buttonPlay.classList.remove('pause')
+    buttonPlay.classList.add('play')
+    musica.pause(); 
+  }
+  
+}
+ 

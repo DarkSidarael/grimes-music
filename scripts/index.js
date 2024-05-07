@@ -98,6 +98,7 @@ fetch("../musics.json").then(response => response.json()).then(data => {
   musics = data
   TOTAL_MUSICS = data.length
   changeMusic(0)
+  musica.play()
 });
 
 function handleToggle() {

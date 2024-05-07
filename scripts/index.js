@@ -78,16 +78,13 @@ function segundosParaMinutos(segundos){
 
 document.querySelectorAll('audio').forEach((element, index) => {
   musica.src = musics[music].audio; 
-  if (!isPlaying) {
-    musica.play(); 
-    buttonPlay.classList.remove('play');
-    buttonPlay.classList.add('pause');
-    isPlaying = true;}
+  
 });
 
 document.querySelectorAll('.fim').forEach(element => {
   element.innerHTML = musics[music].fm
 });
+
 
 }
 
@@ -98,7 +95,10 @@ fetch("../musics.json").then(response => response.json()).then(data => {
   musics = data
   TOTAL_MUSICS = data.length
   changeMusic(0)
-  musica.play()
+  buttonPlay.classList.remove('pause');
+buttonPlay.classList.add('play');
+  
+
 });
 
 function handleToggle() {

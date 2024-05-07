@@ -2,11 +2,36 @@ const MAX_TIME = 100
 let TOTAL_MUSICS = 0
 
 let time = 100
+let musicas = [
+  {
+    titulo:'Guitar solo', artista:'João', src:'music/tatara.mp3', img:'logo3.jpg'
+  }
+]
 let music = 0
 let musics = []
 let isPlaying = false
 let timeEvent = null
+let indexMusica = 0
 let musica = document.querySelector('audio')
+let duracaoMusica = document.querySelector('.fim')
+let imagem = document.querySelector('logo')
+
+document.querySelector('.anterior').addEventListener('click', () => {
+  renderizarMusica();
+});
+
+document.querySelector('.proxima').addEventListener('click', () => {
+  indexMusica++;
+  renderizarMusica(indexMusica);
+});
+
+function renderizarMusica(index){
+  musica.addEventListener('loadeddata', () => {
+    Imagem.src = musicas[index].img;
+    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+  });
+  
+}
 
 
 function changeMusic(direction) {
@@ -31,6 +56,7 @@ function segundosParaMinutos(segundos){
   } return campoMinutos + ':' + campoSegundos;
 } 
 
+duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
 
   timelime.style.width = `${time}%`
 
@@ -52,6 +78,10 @@ function segundosParaMinutos(segundos){
   document.querySelectorAll('h3').forEach(element => {
     element.innerHTML = musics[music].artist
   });
+  
+  document.querySelectorAll('.logo').forEach((element, index) => {
+    element.src = musics[music].imagem; 
+});
 }
 
 // Script de inicialização
@@ -117,7 +147,7 @@ const eventsKeydown = {
 
 document.addEventListener('keydown', (event) => {
   const { code } = event
-  eventsKeydown[code]()
+  eventsKeydown[code];
 })
 
 

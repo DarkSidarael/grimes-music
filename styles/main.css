@@ -12,14 +12,15 @@ main {
   width: 100%;
   max-width: 1440px;
   margin: auto auto 0;
-  padding: 24px 24px 228px;
+  padding: 24px 24px 30px;
 
   display: flex;
   flex-direction: column;
+ 
 }
 
 .main__content .logo {
-  width: 250px;
+  width: 500px;
   height: auto;
   
 }
@@ -73,16 +74,26 @@ main {
 
 .music__mobile {
   display: none;
-  visibility: hidden;
+  visibility: hiden;
 }
 
 @media(max-width: 1080px) {
   .main__content {
-    padding: 24px 24px 150px;
+    padding: 24px 24px 30px;
+  }
+
+  .main__content .logo {
+    width: 300px;
+    height: auto;
+    
   }
 }
 
 @media(max-width: 768px) {
+
+  .main__content .logo{
+    width: 300px;
+  }
   .main__content {
     padding: 100px 24px 72px;
   }
@@ -131,7 +142,8 @@ main {
 
 @media(max-width: 650px) {
   .main__content .logo {
-    width: 140px;
+    width: 250px;
+    padding-bottom: 20px;
    
   }
 

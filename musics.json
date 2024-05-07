@@ -4,18 +4,22 @@
     "name": "Welcome to the Opera",
     "artist": "Grimes feat: anyma",
     "imagem": "assets/logo1.jpg",
-    "audio": "music/anyma.mp3"
+    "audio": "music/anyma.mp3",
+    "fm": "5:13"
   },
   {
     "name": "Ratata",
     "artist": "Grimes",
     "imagem": "assets/capa3.webp",
-    "audio": "music/tatara.mp3"
+    "audio": "music/tatara.mp3",
+    "fm": "2:50"
   },
   {
     "name": "music 4 machine",
     "artist": "grimes",
     "imagem": "assets/logo3.jpg",
     "audio": "music/Machines.mp3"
+    ,
+    "fm": "3:27"
   }
 ]

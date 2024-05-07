@@ -25,14 +25,7 @@ document.querySelector('.proxima').addEventListener('click', () => {
   renderizarMusica(indexMusica);
 });
 
-function renderizarMusica(index){
-  musica.src = musicas[index].src;
-  musica.addEventListener('loadeddata', () => {
-    imagem.src = musicas[index].img;
-    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
-    fim.textContent = segundosParaMinutos(Math.floor(musica.duration));
-  });
-}
+
 
   
 
@@ -63,8 +56,7 @@ function segundosParaMinutos(segundos){
     campoSegundos = '0' + campoSegundos;
   } return campoMinutos + ':' + campoSegundos;
 } 
-
-duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
+    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
 
   timelime.style.width = `${time}%`
 
@@ -93,6 +85,10 @@ duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration))
 
 document.querySelectorAll('audio').forEach((element, index) => {
   musica.src = musics[music].audio;     
+});
+
+document.querySelectorAll('.fim').forEach(element => {
+  element.innerHTML = musics[music].fm
 });
 
 }
